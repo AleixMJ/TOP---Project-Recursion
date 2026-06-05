@@ -21,9 +21,15 @@ function fibs(n) {
 
 
 
-function fibsRec() {
-
+function fibsRec(n) {
+    if (n < 0) return [];
+    if (n == 1) return [0];
+    if (n == 2) return [0, 1];
+    
+    let prevFib = fibsRec(n - 1);
+    return [...prevFib, prevFib[prevFib.length - 2] + prevFib[prevFib.length - 1]];
+    
 }
 
-console.log(fibs(8));
+console.log(fibsRec(8));
 
